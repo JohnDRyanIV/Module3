@@ -5,27 +5,21 @@
 # The purpose of this program is to accept user inputs consisting of name, age, and
 # scores and provide an output displaying a summary of that student and their average
 # score
-
+from format_output import constant
 
 def average():
     # Get input for scores and determine average
-    # Could scale by adding for loop iterating from 0 to less than
-    # constant 'SCORES_TO_GRADE' and dividing result by 'SCORES_TO_GRADE'
-
-    score1 = get_input(1)
-    score2 = get_input(2)
-    score3 = get_input(3)
-
-    return (score1 + score2 + score3) / 3
+    total = float(0)
+    for x in range(1, 1 + constant.NUMBER_OF_SCORES):
+        total = total + get_input(x)
+    return total / constant.NUMBER_OF_SCORES
 
 
 def get_input(number):
     # Validate user input without bloating code in average
     score = float(input("Enter grade number%2.0f: " % number))
-
     while score < 0.0 or score > 100.0:     # Validating input
         score = float(input("Error: you must enter a valid score between 0 and 100: "))
-
     return score
 
 
